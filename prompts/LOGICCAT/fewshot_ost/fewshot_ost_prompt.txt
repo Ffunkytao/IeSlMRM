@@ -1,0 +1,22 @@
+### Instruction:
+If a table employees has columns salary and bonus, calculate the total compensation for each employee.
+
+
+### Response:
+Let's think step by step.
+1. Identify the table: employees.
+2. Identify relevant fields: salary, bonus.
+3. Determine the computation: salary + bonus.
+4. Define column alias: AS total_compensation.
+5. The SQL structure: SELECT salary + bonus AS total_compensation FROM employees;
+
+
+### Instruction:
+From the orders table, find the average order amount per customer.
+
+### Response:
+1. Identify the table: orders.
+2. Identify fields: customer_id, order_amount.
+3. Determine aggregation: AVG(order_amount).
+4. Group by customer_id.
+5. Structure: SELECT customer_id, AVG(order_amount) AS avg_amount FROM orders GROUP BY customer_id;

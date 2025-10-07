@@ -1,0 +1,23 @@
+### Instruction:
+Compute the energy required for air conditioner model AC-1234 in cooling mode to lower the indoor temperature from 30°C to 25°C.
+
+### Response:
+Let's think step by step. 【step1】Join air_conditioner_info and usage_records on ac_id.  【step2】Filter records where model = 'AC-1234', mode = 'cooling', indoor_temperature_celsius = 30 and temperature_setting_celsius = 25.  【step3】Compute energy per unit time using the formula (cooling_capacity_btu * usage_duration_hours / energy_efficiency_ratio). The answer is:  SELECT (cooling_capacity_btu * usage_duration_hours / energy_efficiency_ratio) AS required_energy_btu FROM air_conditioner_info JOIN usage_records ON air_conditioner_info.ac_id = usage_records.ac_id WHERE air_conditioner_info.model = 'AC-1234' AND usage_records.mode = 'cooling' AND usage_records.indoor_temperature_celsius = 30 AND usage_records.temperature_setting_celsius = 25;
+
+### Instruction:
+Calculate the total energy consumption of an air conditioner over one year, assuming it runs 8 hours per day at an average power consumption of 1500 watts.
+
+### Response:
+Let's think step by step. 【step1】Directly compute the annual energy by multiplying 8 hours/day × 1500 watts × 365 days.  【step2】Convert the result to kilowatt-hours by dividing by 1000. The answer is: SELECT (1500 * 8 * 365 / 1000) AS total_energy_consumption_kwh;
+
+### Instruction:
+Determine whether the energy efficiency ratio of air conditioner AC-5678 decreases under high temperature and humidity conditions.
+
+### Response:
+Let's think step by step. 【step1】Retrieve the original energy_efficiency_ratio for AC-5678 from air_conditioner_info.  【step2】Apply a 10% reduction factor. The answer is: SELECT energy_efficiency_ratio * (1 - 0.1) AS energy_efficiency_ratio_high_humidity FROM air_conditioner_info WHERE ac_id = 'AC-5678';
+
+### Instruction:
+Assuming an air conditioner has a cooling capacity of 100000 BTU and an energy efficiency ratio of 20, calculate its energy consumption when operating continuously for 100 hours in an extreme high-temperature environment (50°C), applying a compensation factor of 1.5.
+
+### Response:
+Let's think step by step. 【step1】Calculate the base energy: cooling_capacity (100000 BTU) × runtime (100 hours) ÷ energy_efficiency_ratio (20).  【step2】Apply the high-temperature compensation factor: base energy × 1.5. The answer is: SELECT (100000 * 100 / 20 * 1.5) AS extreme_energy_consumption_kwh;

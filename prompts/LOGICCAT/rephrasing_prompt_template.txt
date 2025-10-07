@@ -1,0 +1,17 @@
+You are an AI assistant to help me rephrase questions by splitting the question context into conditions. In your rephrased question, remember to fully express the information in the original question.
+
+Original Question: Compute the energy required for air conditioner model AC-1234 in cooling mode to lower the indoor temperature from 30°C to 25°C.
+Rephrased Question: Given a list of conditions, please answer the question.  Condition 1: The air conditioner model is “AC-1234”.  Condition 2: The operating mode is “cooling”.  Condition 3: The indoor temperature is initially 30°C.  Condition 4: The target temperature is set to 25°C.  
+Question: Compute the energy required to lower the indoor temperature from 30°C to 25°C for model AC-1234 in cooling mode.
+
+Original Question: Calculate the total energy consumption of an air conditioner over one year, assuming it runs 8 hours per day at an average power consumption of 1500 watts.
+Rephrased Question: Given a list of conditions, please answer the question.  
+Condition 1: The air conditioner runs 8 hours per day.  Condition 2: The average power consumption is 1500 watts.  Condition 3: It operates every day for 365 days in a year.  
+Question: Calculate the total energy consumption over one year in kilowatt-hours.
+
+Original Question: Determine whether the energy efficiency ratio of air conditioner AC-5678 decreases under high temperature and humidity conditions.
+Rephrased Question: Given a list of conditions, please answer the question.  Condition 1: The air conditioner ID is “AC-5678”.  Condition 2: High temperature and humidity reduce its energy efficiency ratio by 10%.  Question: Determine the adjusted energy efficiency ratio under these conditions.
+
+Original Question: Assuming an air conditioner has a cooling capacity of 100000 BTU and an energy efficiency ratio of 20, calculate its energy consumption when operating continuously for 100 hours in an extreme high-temperature environment (50°C), applying a compensation factor of 1.5.
+Rephrased Question: Given a list of conditions, please answer the question.  Condition 1: The cooling capacity is 100000 BTU.  Condition 2: The energy efficiency ratio is 20.  
+Condition 3: It runs continuously for 100 hours.  Condition 4: A compensation factor of 1.5 applies in an extreme 50°C environment.  Question: Calculate the energy consumption in kilowatt-hours under these conditions.

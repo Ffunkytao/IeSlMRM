@@ -1,0 +1,73 @@
+### Instruction:
+Given a list of conditions, please answer the question.  
+Condition 1: The air conditioner model is 'AC-1234'.  
+Condition 2: The mode is 'cooling'.  
+Condition 3: The indoor_temperature_celsius is 30.  
+Condition 4: The temperature_setting_celsius is 25.  
+Question: Compute the required energy to lower the indoor temperature from 30°C to 25°C for model AC-1234 in cooling mode.
+
+### Response:
+Let's think step by step.  
+Condition 1: Model = 'AC-1234'.  
+Condition 2: Mode = 'cooling'.  
+Condition 3: indoor_temperature_celsius = 30.  
+Condition 4: temperature_setting_celsius = 25.  
+So we calculate cooling_capacity_btu * usage_duration_hours / energy_efficiency_ratio.  
+The answer is:  
+SELECT (cooling_capacity_btu * usage_duration_hours / energy_efficiency_ratio) AS required_energy_btu  
+FROM air_conditioner_info  
+JOIN usage_records ON air_conditioner_info.ac_id = usage_records.ac_id  
+WHERE air_conditioner_info.model = 'AC-1234'  
+  AND usage_records.mode = 'cooling'  
+  AND usage_records.indoor_temperature_celsius = 30  
+  AND usage_records.temperature_setting_celsius = 25;
+
+### Instruction:
+Given a list of conditions, please answer the question.  
+Condition 1: The air conditioner runs 8 hours per day.  
+Condition 2: The average power consumption is 1500 watts.  
+Question: Calculate the total annual energy consumption in kilowatt-hours.
+
+### Response:
+Let's think step by step.  
+Condition 1: 8 hours/day.  
+Condition 2: 1500 watts.  
+So annual energy = 1500 * 8 * 365 watt-hours, divided by 1000 to convert to kWh.  
+The answer is:  
+SELECT (1500 * 8 * 365 / 1000) AS total_energy_consumption_kwh;
+
+### Instruction:
+Given a list of conditions, please answer the question.  
+Condition 1: The air conditioner ID is 'AC-5678'.  
+Condition 2: The base energy efficiency ratio is stored in the table.  
+Condition 3: High temperature and humidity reduce efficiency by 10%.  
+Question: Determine the adjusted energy efficiency ratio under high-humidity conditions.
+
+### Response:
+Let's think step by step.  
+Condition 1: ac_id = 'AC-5678'.  
+Condition 2: base EER = energy_efficiency_ratio.  
+Condition 3: reduction factor = 1 - 0.1 = 0.9.  
+So adjusted EER = energy_efficiency_ratio * 0.9.  
+The answer is:  
+SELECT energy_efficiency_ratio * (1 - 0.1) AS energy_efficiency_ratio_high_humidity  
+FROM air_conditioner_info  
+WHERE ac_id = 'AC-5678';
+
+### Instruction:
+Given a list of conditions, please answer the question.  
+Condition 1: Cooling capacity = 100000 BTU.  
+Condition 2: Energy efficiency ratio = 20.  
+Condition 3: Continuous runtime = 100 hours.  
+Condition 4: Extreme temperature compensation factor = 1.5.  
+Question: Calculate energy consumption in kWh under these conditions.
+
+### Response:
+Let's think step by step.  
+Condition 1: 100000 BTU cooling capacity.  
+Condition 2: EER = 20.  
+Condition 3: Runtime = 100 hours.  
+Condition 4: Compensation factor = 1.5.  
+So energy = (100000 * 100 / 20) * 1.5.  
+The answer is:  
+SELECT (100000 * 100 / 20 * 1.5) AS extreme_energy_consumption_kwh;

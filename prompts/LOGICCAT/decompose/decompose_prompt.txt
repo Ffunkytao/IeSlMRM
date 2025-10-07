@@ -1,0 +1,48 @@
+Given a question, please decompose it into sub-questions. For each sub-question, please answer it in a complete sentence, ending with "The answer is <a SQL answer>". When the original question is answerable, please start the subquestion with "Now we can answer the question: <original question>".
+
+Question 1: If a Robinson R-22 helicopter has a total rotor disc area of 46.2 square meters and a maximum rotor disc loading of 14 kilograms per square meter, what is its lift under maximum gross weight?
+Schema: aircraft(Aircraft_ID, Aircraft, Description, Max_Gross_Weight, Total_Disk_Area, Max_Disk_Loading, …)
+Question 1.1: Which table stores rotor disc area and rotor disc loading?
+Answer 1.1: The table is aircraft, which records each aircraft’s specifications. The answer is aircraft.
+Question 1.2: Which field represents the total rotor disc area?
+Answer 1.2: The field is Total_Disk_Area. The answer is Total_Disk_Area.
+Question 1.3: Which field represents the maximum rotor disc loading?
+Answer 1.3: The field is Max_Disk_Loading. The answer is Max_Disk_Loading.
+Question 1.4: Now we can answer the question: What is its lift under maximum gross weight?
+Answer 1.4: We multiply Total_Disk_Area by Max_Disk_Loading for the Robinson R-22. The answer is SELECT Total_Disk_Area * Max_Disk_Loading AS Lift FROM aircraft WHERE Aircraft = 'Robinson R-22';
+
+Question 2: Assuming the total annual passenger volume at London Heathrow Airport is 67,054,745, with international passengers accounting for 61,344,438, what is the percentage of international passenger volume relative to the total, rounded to two decimal places?
+Schema: airport(Airport_ID, Airport_Name, Total_Passengers, International_Passengers, Domestic_Passengers, Transit_Passengers)
+Question 2.1: Which table stores passenger volume information?
+Answer 2.1: The table is airport, which records various passenger counts per airport. The answer is airport.
+Question 2.2: Which field represents the total annual passenger volume?
+Answer 2.2: The field is Total_Passengers. The answer is Total_Passengers.
+Question 2.3: Which field represents the count of international passengers?
+Answer 2.3: The field is International_Passengers. The answer is International_Passengers.
+Question 2.4: Now we can answer the question: What is the international passenger percentage rounded to two decimals?
+Answer 2.4: We compute (International_Passengers / Total_Passengers) × 100 and round to two decimal places. The answer is SELECT ROUND((International_Passengers / Total_Passengers) * 100, 2) AS International_Passenger_Percentage FROM airport WHERE Airport_Name = 'LondonHeathrow';
+        
+
+Question 3: If the number of takeoffs and landings at London Heathrow Airport is 478,893 with a cargo volume of 1,397,054 metric tons, what is the average cargo volume per takeoff or landing?
+Schema: airport(Airport_ID, Airport_Name, Total_Passengers, International_Passengers, Domestic_Passengers, Transit_Passengers, Aircraft_Movements, Freight_Tonnes)
+Question 3.1: Which table contains takeoff/landing and cargo information?
+Answer 3.1: The table is airport, which records aircraft movements and freight volume. The answer is airport.
+Question 3.2: Which field represents the number of takeoffs and landings?
+Answer 3.2: The field is Aircraft_Movements. The answer is Aircraft_Movements.
+Question 3.3: Which field represents the total cargo volume?
+Answer 3.3: The field is Freight_Tonnes. The answer is Freight_Tonnes.
+Question 3.4: Now we can answer the question: What is the average cargo volume per takeoff or landing?
+Answer 3.4: We divide Freight_Tonnes by Aircraft_Movements. The answer is SELECT Freight_Tonnes / Aircraft_Movements AS Average_Freight_Per_Movement FROM airport WHERE Airport_Name = 'LondonHeathrow'; 
+        
+
+Question 4: Calculate the total passenger volume for London Heathrow Airport in 2019, given that the total passenger volume in 2020 was 67,054,745, with a 1.5% change compared to 2019.
+Schema: airport(Airport_ID, Airport_Name, Total_Passengers, Change_2019)
+Question 4.1: Which table stores annual passenger volume and change percentage?
+Answer 4.1: The table is airport, which records total passengers and percentage change. The answer is airport.
+Question 4.2: Which field represents the 2020 total passenger volume?
+Answer 4.2: The field is Total_Passengers. The answer is Total_Passengers.
+Question 4.3: Which field represents the percentage change relative to 2019?
+Answer 4.3: The field is Change_2019. The answer is Change_2019.
+Question 4.4: Now we can answer the question: What is the 2019 passenger volume?
+Answer 4.4: We reverse the percentage change by dividing 2020 volume by (1 + Change_2019/100). The answer is SELECT Total_Passengers / (1 + Change_2019 / 100) AS Total_Passengers_2019 FROM airport WHERE Airport_Name = 'LondonHeathrow';
+        
